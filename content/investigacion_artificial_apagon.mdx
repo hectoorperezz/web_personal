@@ -1,0 +1,231 @@
+---
+title: "Dialéctica artificial sobre el apagón"
+publishedAt: "2025-04-29"
+summary: "Las conclusiones sobre el apagón masivo. Un intento de encontrar explicaciones con Inteligencia Artificial."
+---
+
+
+
+## Un Intento de encontrar respuestas
+
+Ayer vivimos una experiencia **surrealista** más que se añade a la ya larga lista de eventos de los últimos años. Nada ocurre por casualidad y por eso esta mañana he iniciado una conversación con el modelo **GPT-o4-mini de OpenAI** para tratar de buscar una explicación y comprender un poco mejor la complejidad de los sistemas eléctricos en sociedades tan avanzadas como las actuales. Los resultados han sido muy interesantes y creo que reflejan el potencial de la IA.
+
+En esta conversación he pasado de entender malamente las diferencias entre Corriente Alterna y Continua a tener una visión mucho más completa y técnica del mercado eléctrico español hasta el punto de terminar teorizando una posible explicación a lo sucedido ayer. La conversación ha sido bastante desorganizada y con falta de coherencia ya que necesitaba entender un poco mejor todos los conceptos detrás del sistema eléctrico, lo que en el mundo anglo se conoce como *First Principles Thinking*.
+
+---
+
+La complejidad del sistema eléctrico moderno parte de unos principios muy sencillos: tensión, corriente, frecuencia e intensidad. A partir de ahí, la ingeniería ha evolucionado para hacer posible el transporte eficiente de miles de megavatios de energía hasta nuestras casas y, al mismo tiempo, integrar tecnologías renovables como la fotovoltaica. Empezaremos entendiendo las diferencias esenciales entre la CA y CC.
+
+
+## 1. ¿Qué son la corriente continua y la corriente alterna?
+
+### Corriente continua (CC)
+
+- **Definición**: flujo constante de carga en un único sentido.  
+- **Formato**: en un gráfico de tensión vs. tiempo aparece como una línea plana.  
+- **Origen**: pilas, baterías, celdas solares.  
+- **Usos**: electrónica de precisión (ordenadores, móviles), sistemas de almacenamiento, tracción eléctrica.  
+- **Ventajas**: estable, fácil de almacenar.  
+- **Desventajas**: pérdidas elevadas en transmisiones de larga distancia.
+
+### Corriente alterna (CA)
+
+- **Definición**: flujo de carga que invierte periódicamente su sentido.  
+- **Formato**: habitualmente onda sinusoidal (aunque también hay formas cuadradas, triangulares, etc.).  
+- **Origen**: generadores y alternadores en centrales eléctricas.  
+- **Usos**: distribución de energía eléctrica en redes de media y alta tensión, motores industriales.  
+- **Ventajas**: transformación de voltaje eficiente mediante transformadores.  
+- **Desventajas**: menos estable para electrónica sin conversión previa a CC.
+
+| Característica    | Corriente Continua (CC)     | Corriente Alterna (CA)            |
+| ----------------- | --------------------------- | --------------------------------- |
+| Dirección         | Unidireccional              | Bidireccional                     |
+| Magnitud          | Constante                   | Variable (senoidal, etc.)         |
+| Frecuencia        | 0 Hz                        | 50 Hz (Europa), 60 Hz (EE.UU.)    |
+| Transmisión       | Costosa en larga distancia  | Eficiente con transformadores     |
+| Generación típica | Baterías, pilas, paneles PV | Centrales térmicas, hidro, nuclear|
+| Uso común         | Electrónica, tracción       | Suministro doméstico e industrial |
+
+---
+
+## 2. ¿Qué tipo de corriente llega a nuestros hogares?
+
+En la red de distribución eléctrica doméstica se emplea **corriente alterna**. En España y buena parte de Europa llega a **230 V y 50 Hz**; en países como Estados Unidos, **120 V y 60 Hz**. Esto facilita el uso directo de transformadores y adaptadores en cada hogar.
+
+---
+
+## 3. ¿Por qué usamos CA y no CC en la red de transporte?
+
+1. **Facilidad de transformación de tensión**: con transformadores subimos a alta tensión para transportar grandes potencias con menores pérdidas, y después bajamos a niveles seguros.  
+2. **Generación natural**: los alternadores producen CA de forma directa al girar sus rotores.  
+3. **Economía de infraestructura**: la tecnología de CA (transformadores, líneas, protecciones) está muy optimizada y es más barata a escala macro.
+
+En CC sería muy complejo y costoso cambiar el voltaje en ambos sentidos y las pérdidas por efecto Joule serían mucho mayores.
+
+---
+
+## 4. ¿Cómo cargamos nuestros dispositivos eléctricos?
+
+Aunque la red ofrece CA, la mayoría de aparatos electrónicos funcionan con CC. En particular, el cargador de un móvil:
+
+1. **Transformador**: baja la tensión de red (230 V CA) a unos pocos voltios.  
+2. **Rectificador**: mediante un puente de diodos convierte esa CA en CC “irregular”.  
+3. **Condensador**: suaviza las ondulaciones y entrega CC estable (por ejemplo, 5 V CC).
+
+Este proceso garantiza que nuestros smartphones reciban la tensión y la corriente adecuadas para cargar sus baterías.
+
+---
+
+## 5. ¿Cómo funciona un rectificador?
+
+- **Diodos**: actúan como válvulas que sólo permiten el paso de corriente en un sentido.  
+- **Media onda**: un solo diodo deja pasar sólo uno de los semiciclos de la CA.  
+- **Onda completa**: puente de diodos con cuatro elementos que invierte el semiciclo negativo, aprovechando toda la señal.  
+- **Suavizado**: un condensador almacena carga en las crestas y la libera en los valles, aproximando la forma de onda a una línea continua.
+
+---
+
+## 6. Frecuencia, Voltaje e Intensidad: La Tríada del Equilibrio Energético
+
+El equilibrio entre la **frecuencia**, el **voltaje** y la **intensidad** es fundamental para el correcto funcionamiento de cualquier red eléctrica. Estos tres parámetros están interrelacionados y determinan la estabilidad, eficiencia y seguridad del sistema eléctrico.
+
+### Voltaje (V)
+
+El **voltaje** es la fuerza que impulsa a los electrones a moverse a través de un conductor, generando una corriente eléctrica. Se puede comparar con la presión en una tubería: cuanto mayor es la presión, más rápido y con más fuerza fluye el agua (en este caso, los electrones). El voltaje es esencial para el transporte de energía a largas distancias. A mayor voltaje, menor es la corriente necesaria para transmitir la misma cantidad de energía, lo que ayuda a reducir las pérdidas energéticas a través del **efecto Joule**.
+
+### Intensidad (A)
+
+La **intensidad** o **corriente eléctrica** es la cantidad de carga que pasa a través de un conductor por segundo. Se mide en amperios (A). La corriente es directamente proporcional a la cantidad de energía que fluye a través del sistema en un momento dado. Un aumento en la intensidad de la corriente aumenta las pérdidas de energía debido al **efecto Joule** (Pérdidas ∝ I²·R), donde **R** es la resistencia del conductor. Por esta razón, en las redes de transmisión se busca mantener una intensidad baja mediante el aumento del voltaje, ya que esto minimiza las pérdidas por resistencia.
+
+### Frecuencia (Hz)
+
+La **frecuencia** es el número de cambios de dirección por segundo que experimenta la corriente alterna (CA). En Europa, la frecuencia estándar es de **50 Hz**, lo que significa que la corriente cambia de dirección 50 veces por segundo. La frecuencia es crucial porque debe mantenerse estable para que los equipos eléctricos funcionen correctamente. Cualquier desviación, por pequeña que sea, puede causar fallos en los dispositivos electrónicos y poner en riesgo la estabilidad de la red. Los márgenes de tolerancia para la frecuencia en las redes eléctricas europeas son muy ajustados, con una variación máxima de **±0,05 Hz**.
+
+### Relación entre Voltaje, Intensidad y Potencia
+
+La **potencia instantánea** en un sistema eléctrico se puede calcular mediante la siguiente fórmula:
+
+**P (W) = V (V) × I (A)**
+
+Esta fórmula nos muestra que la potencia es el producto del voltaje por la intensidad. Si aumentamos el voltaje, podemos transmitir la misma cantidad de potencia utilizando una corriente menor, lo que reduce las pérdidas por efecto Joule. Por ello, las redes eléctricas de alta tensión utilizan voltajes elevados para minimizar las pérdidas de energía durante el transporte.
+
+
+La **frecuencia** debe mantenerse constante dentro de un rango muy estricto para asegurar el funcionamiento eficiente de la red. Si la frecuencia se desvía demasiado, pueden ocurrir serios problemas, como la desconexión de equipos y el fallo de la red eléctrica. Para evitar estos problemas, las redes de distribución y transmisión deben ser gestionadas de manera que cualquier desequilibrio entre la oferta y la demanda de energía se corrija rápidamente, manteniendo la frecuencia dentro de los márgenes establecidos.
+
+En resumen, **voltaje**, **intensidad** y **frecuencia** son componentes interdependientes que trabajan juntos para garantizar una transmisión de energía eficiente y segura. Mantener estos parámetros en equilibrio es esencial para la estabilidad y fiabilidad de las redes eléctricas, al igual que mantener el equilibrio en una bicicleta permite llegar a tu destino sin caerte.
+
+
+---
+
+## 7. ¿Cómo se mantiene la frecuencia estable en tiempo real y qué papel juega el mercado marginalista?
+
+El gran reto de los operadores de red (en España, **Red Eléctrica Española, REE**) es equilibrar generación y consumo segundo a segundo para mantener la frecuencia en **50 Hz**. Para ello existen diversos mecanismos técnicos y de mercado:
+
+1. **Regulación primaria (inercia y respuesta automática)**
+   - Los generadores clásicos ajustan su potencia en décimas de segundo si detectan ligeros cambios de frecuencia.
+   - Esta inercia natural frena o acelera las turbinas según convenga, aportando un amortiguador inmediato.
+
+2. **Regulación secundaria (AGC, 30 s–15 min)**
+   - El sistema central envía órdenes a centrales específicas para afinar la frecuencia y gestionar intercambio internacional.
+   - Este control automático de generación (AGC) corrige desviaciones residuales.
+
+3. **Regulación terciaria (15 min–horas)**
+   - Reserva de centrales que arrancan o apagan carga industrial (“interrumpibilidad”) para mantener el sistema en equilibrio.
+   - Se activa mediante contratos de reserva a través del **mercado de OMIE**.
+
+### Mercado marginalista y subastas diarias
+
+El mercado eléctrico en España opera bajo un **sistema marginalista** organizado por **OMIE**:
+
+- **Mercado diario**: cada mediodía se celebran subastas para el día siguiente. Las ofertas de generación se ordenan por precio creciente.
+- **Precio marginal**: el coste de la última tecnología necesaria para cubrir la demanda fija el precio de casación. Todas las tecnologías geran esa misma remuneración, independientemente de su coste real.
+- **Incentivos de flexibilidad**: los precios margina-listas envían señales para promover tecnologías con respuesta rápida (como ciclos combinados o baterías), esenciales para provisión de servicios de regulación.
+- **Mercado intradiario**: ajustes continuos hasta pocas horas antes de la entrega, permitiendo afinar la programación ante cambios de demanda o producción renovable.
+
+Esta integración de la **regulación técnica** y el **mecanismo marginalista** garantiza no solo la estabilidad inmediata de la frecuencia, sino también la señalización de inversiones futuras en recursos capaces de responder con rapidez a desequilibrios en la red.
+
+---
+
+## 8. Consecuencias de variaciones críticas de frecuencia
+
+La frecuencia del sistema eléctrico es un indicador clave del equilibrio entre generación y consumo. Cualquier desviación puede desencadenar respuestas automáticas y, en casos extremos, un apagón. A continuación se detallan los rangos críticos, las acciones que se activan y sus implicaciones:
+
+| Nivel de frecuencia | Acción automática               | Tiempo de respuesta    | Riesgo/Pérdida potencial                                    |
+| ------------------- | ------------------------------- | ---------------------- | ----------------------------------------------------------- |
+| 49,9–49,8 Hz        | Regulación primaria             | < 30 s                 | Corrección rápida por inercia de turbinas y alternadores.  |
+| 49,8–49,5 Hz        | Regulación secundaria/terciaria | 30 s–15 min            | Ajustes en generación bajo AGC y movilización de reservas. |
+| 49,5–49,0 Hz        | Deslastre de carga              | < 5 min                | Desconexión automática de cargas no prioritarias (industriales y comerciales). |
+| 49,0–48,5 Hz        | Interrupción de suministro      | < 10 min               | Cortes programados en zonas específicas para evitar colapso completo. |
+| < 48,5 Hz           | Alarma de blackout              | Inmediato              | Desconexión masiva (protecciones de UFLS) y riesgo de apagón total. |
+| 50,1–50,2 Hz        | Regulación primaria inversa     | < 30 s                 | Generadores reducen potencia para absorber exceso.         |
+| 50,2–50,5 Hz        | Regulación secundaria inversa   | 30 s–15 min            | Acciones de control para estabilizar frecuencia alta.      |
+| > 50,5 Hz           | Desconexión de generación       | < 5 min                | Apagado de grupos generadores para prevenir daños mecánicos. |
+
+**Explicación adicional**:
+
+- **Regulación primaria**: aprovecha la inercia mecánica de máquinas giratorias para responder en décimas de segundo, disipando pequeñas variaciones antes de que escalen.
+- **Regulación secundaria y terciaria**: utilizan sistemas de control y telecomandos para coordinar centrales eléctricas, ajustando su output según las señales de frecuencia y optimizando costes mediante el mercado marginalista.
+- **Deslastre de carga y UFLS**: el esquema de Under-Frequency Load Shedding (UFLS) desconecta selectivamente cargas definidas en función de umbrales de frecuencia, evitando un colapso completo al sacrificar primero consumos industriales o no críticos.
+- **Protecciones ante sobrefrecuencia**: análogas al UFLS, existe Over-Frequency Generation Shedding (OFGS), que desconecta generación o carga de forma programada para traer la frecuencia de nuevo al rango operativo.
+
+El conocimiento de estos mecanismos es esencial para comprender cómo los operadores de red mantienen la estabilidad y cómo ciertas tecnologías (como baterías o inversores avanzados) pueden integrarse para aportar servicios de regulación de frecuencia de forma más flexible y rápida.
+
+---
+
+## 9. ¿Por qué la fotovoltaica carece de inercia y cómo afecta a la estabilidad?
+
+A diferencia de las fuentes de energía tradicionales, como las plantas térmicas o hidroeléctricas, que generan corriente alterna (CA) directamente mediante generadores síncronos, la energía fotovoltaica produce corriente continua (CC). Los paneles solares capturan la radiación solar y convierten la energía en corriente continua. Dado que la mayoría de las redes eléctricas funcionan con corriente alterna, es necesario convertir esta corriente continua (CC) a corriente alterna (CA) para poder transportarla y distribuirla por la red. Este proceso de conversión es realizado por los inversores, los cuales no cuentan con componentes giratorios, lo que implica la ausencia de la inercia que poseen las plantas de generación convencional.
+
+### 9.1. Ausencia de masa giratoria
+
+En las centrales tradicionales, la inercia proviene de la masa giratoria de las turbinas y alternadores, que actúan como un amortiguador mecánico. Esta masa ayuda a disipar los desequilibrios de frecuencia, proporcionando estabilidad a la red en caso de fluctuaciones repentinas de la generación o la demanda. Sin embargo, en la fotovoltaica, los paneles solares y sus inversores no tienen componentes giratorios. La conversión de CC a CA se realiza electrónicamente sin la presencia de mecanismos físicos que puedan ofrecer esa estabilidad inercial.
+
+### 9.2. Problemas derivados de la falta de inercia
+
+La falta de inercia física en la fotovoltaica tiene consecuencias importantes para la estabilidad de la red. Sin la masa giratoria que amortigua las fluctuaciones de frecuencia, los desequilibrios de potencia, como los causados por fallos de generación o grandes cambios en la demanda, se reflejan más rápidamente en la frecuencia de la red. Esto da lugar a un **RoCoF (Rate of Change of Frequency)** elevado, es decir, una caída más rápida de la frecuencia, lo que puede resultar en caídas de tensión o desconexiones de partes de la red.
+
+### 9.3. Inversores grid-following vs. grid-forming
+
+- **Inversores Grid-following**: Estos inversores miden la frecuencia y fase de la red para sincronizar su salida. No pueden mantener la frecuencia si la red se desvía bruscamente, lo que provoca que se desconecten si la frecuencia se mueve fuera de los umbrales preestablecidos (por ejemplo, 49,5 Hz). Esto significa que no contribuyen en absoluto a la estabilidad inercial de la red.
+
+- **Inversores Grid-forming**: Estos inversores emulan el comportamiento de las máquinas síncronas tradicionales, controlando la frecuencia y la tensión de la red incluso durante fallos. Mediante algoritmos de control por "droop" y la emulación de inercia sintética, los inversores grid-forming pueden inyectar o absorber potencia en milisegundos, ayudando a regular la frecuencia de la red. Sin embargo, actualmente representan una pequeña fracción de la capacidad fotovoltaica instalada, menos del 5 % en España.
+
+### 9.4. Impacto en la estabilidad de la red
+
+La falta de inercia en los sistemas fotovoltaicos provoca un **mayor nadir de frecuencia**, es decir, que la frecuencia puede caer a un nivel más bajo de lo que ocurriría en un sistema con inercia convencional antes de que se active la regulación primaria. Esto incrementa la necesidad de **reservas rápidas** que puedan reaccionar en segundos, como baterías de almacenamiento (BESS) o plantas de ciclo combinado. Además, el sistema requiere **protecciones más estrictas**, lo que ha llevado a REE a reforzar los requisitos técnicos en el Código de Red (REBT) para los nuevos inversores.
+
+
+
+---
+
+## 10. Posible hipótesis sobre el apagón masivo del 28 de abril de 2025
+
+**Datos conocidos**:
+
+- **28 de abril de 2025, ≈12:30**: hora exacta del apagón en toda la península.  
+- **Mix eléctrico a las 12:00** (30 min antes): aproximadamente 83 % de generación renovable, con más de 15 GW de energía solar y una intensidad de carbono de 68 gCO₂eq/kWh según datos públicos.  
+- No disponemos de información oficial sobre causas directas más allá del momento en que se registró la caída.
+
+![Texto alternativo](/apagon.jpeg)
+
+**Hipótesis**:
+
+1. **Desacople entre oferta y demanda**: un evento inesperado ya sea desde el lado de la oferta o el de la demanda en torno a las 12:30 podría haber provocado un desacople entre oferta y demanda con la consecuente bajada de frecuencia.
+2. **Elevada penetración solar**: con 15 GW de solar en el mix, la red tenía poca capacidad de inercia física. Limitando así la capacidad de ajustarse de forma rápida a la demanda. 
+3. **Respuesta de inversores fotovoltaicos**: la mayoría de los inversores grid-following, diseñados para protegerse ante caídas de frecuencia por debajo de sus umbrales (~49,5 Hz), podrían haberse desconectado masivamente.  
+4. **Efecto en cascada**: la retirada repentina de 15 GW de potencia solar habría agravado aún más la baja de frecuencia, activando otras protecciones automáticas.  
+5. **Colapso progresivo**: sin reservas inerciales ni generación estable suficiente, el sistema se habría precipitado hacia un blackout general.
+
+![Texto alternativo](/frecuencia.jpeg)
+
+---
+
+## Conclusión
+
+La transición energética no es solo instalar más paneles, sino diseñar una red capaz de equilibrar generación y consumo con la precisión de un reloj de alta frecuencia. Esto no es una crítica a las energías renovables como probablemente traten de hacer muchos "líderes de opinión"; las energías renovables son más eficientes, más limpias y en España tenemos una oportunidad generacional para invertir en esta tecnología. Sin embargo, es importante entender que los populismos tanto de izquierdas (las nucleares son horribles y acabarán con el mundo) como de derechas (las renovables son "mierda WOKE") no valen de nada a la hora de la verdad.
+
+Eventos como el de ayer dejan claro la profunda decadencia que atraviesa Occidente a nivel político, institucional e incluso social. Por suerte o por desgracia, el ser humano tiene una capacidad de adaptación excepcional, y una vez restaurada la normalidad, las turbinas volverán a girar y todos volveremos a nuestras rutinas omitiendo de forma temporal esta decadencia hasta el siguiente escándalo.
+
+**Disclaimer:** Esta es solo la humilde opinión de un ciudadano más; no tengo ni la experiencia vital ni el conocimiento académico suficiente para tener la verdad absoluta sobre nada. Realiza tus propios análisis. La idea final se trata de una teoría y habrá que escuchar la versión oficial para despejar la incertidumbre.
+
+
