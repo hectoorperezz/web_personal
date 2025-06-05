@@ -107,6 +107,14 @@ export const DATA = {
   ],
   education: [
     {
+      school: "Universidad de las Hespérides",
+      href: "https://hesperides.edu.es/",
+      degree: "Máster en Finanzas Cuantitativas y Métodos Computacionales",
+      logoUrl: "/hesperides.jpeg",
+      start: "2025",
+      end: "Actualidad",
+    },
+    {
       school: "Universidad Carlos III de Madrid",
       href: "https://www.uc3m.es/inicio",
       degree: "Finanzas y Contabiliad",
