@@ -22,7 +22,8 @@ import {
   Target,
   Save,
   Send,
-  FilePenLine
+  FilePenLine,
+  RefreshCw
 } from "lucide-react";
 
 interface Article {
@@ -92,7 +93,13 @@ export default function AdminPage() {
   const fetchArticles = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/api/blog/list");
+      const response = await fetch("/api/blog/list", {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
       if (response.ok) {
         const data = await response.json();
         setArticles(data);
@@ -106,7 +113,13 @@ export default function AdminPage() {
 
   const fetchDrafts = async () => {
     try {
-      const response = await fetch("/api/blog/drafts/list");
+      const response = await fetch("/api/blog/drafts/list", {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
       if (response.ok) {
         const data = await response.json();
         setDrafts(data);
@@ -165,7 +178,10 @@ export default function AdminPage() {
         const result = await response.json();
         if (editingDraft) {
           setMessage(`Draft published successfully! Slug: ${result.slug}`);
-          fetchDrafts(); // Refresh drafts list
+          // Add delay to allow blob storage to propagate
+          setTimeout(() => {
+            fetchDrafts(); // Refresh drafts list
+          }, 1000);
         } else {
           setMessage(`Article ${editingArticle ? 'updated' : 'published'} successfully! Slug: ${result.slug}`);
         }
@@ -174,7 +190,10 @@ export default function AdminPage() {
         setContent("");
         setEditingArticle(null);
         setEditingDraft(null);
-        fetchArticles(); // Refresh the articles list
+        // Add delay to allow blob storage to propagate
+        setTimeout(() => {
+          fetchArticles(); // Refresh the articles list
+        }, 1000);
       } else {
         const error = await response.json();
         setMessage(`Error: ${error.message}`);
@@ -257,7 +276,10 @@ export default function AdminPage() {
       if (response.ok) {
         const result = await response.json();
         setMessage(`Draft ${editingDraft ? 'updated' : 'saved'} successfully! Slug: ${result.slug}`);
-        fetchDrafts(); // Refresh the drafts list
+        // Add delay to allow blob storage to propagate
+        setTimeout(() => {
+          fetchDrafts(); // Refresh the drafts list
+        }, 1000);
       } else {
         const error = await response.json();
         setMessage(`Error: ${error.message}`);
@@ -291,8 +313,11 @@ export default function AdminPage() {
 
       if (response.ok) {
         setMessage("Draft published successfully!");
-        fetchArticles();
-        fetchDrafts();
+        // Add delay to allow blob storage to propagate
+        setTimeout(() => {
+          fetchArticles();
+          fetchDrafts();
+        }, 1000);
       } else {
         const error = await response.json();
         setMessage(`Error: ${error.message}`);
@@ -314,7 +339,10 @@ export default function AdminPage() {
 
       if (response.ok) {
         setMessage("Draft deleted successfully");
-        fetchDrafts();
+        // Add delay to allow blob storage to propagate
+        setTimeout(() => {
+          fetchDrafts();
+        }, 1000);
       } else {
         const error = await response.json();
         setMessage(`Error: ${error.message}`);
@@ -424,6 +452,17 @@ export default function AdminPage() {
                   className="pl-12 w-80 h-12 border-0 bg-muted/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring"
                 />
               </div>
+              <Button 
+                variant="outline"
+                onClick={() => {
+                  fetchArticles();
+                  fetchDrafts();
+                }}
+                className="h-12 px-4 border-border bg-muted/50 backdrop-blur-sm text-foreground hover:bg-muted"
+                title="Refresh data"
+              >
+                <RefreshCw className="h-4 w-4" />
+              </Button>
               <Button 
                 onClick={() => {
                   setEditingArticle(null);

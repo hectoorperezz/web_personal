@@ -1,6 +1,10 @@
 import { list } from "@vercel/blob";
 import { NextResponse } from "next/server";
 
+// Disable caching for this API route
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const { blobs } = await list({
@@ -26,7 +30,14 @@ export async function GET() {
       .filter(Boolean)
       .sort((a, b) => new Date(b.metadata.savedAt).getTime() - new Date(a.metadata.savedAt).getTime());
 
-    return NextResponse.json(validDrafts);
+    const response = NextResponse.json(validDrafts);
+    
+    // Add cache control headers to prevent caching
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    
+    return response;
   } catch (error) {
     console.error("Error listing drafts:", error);
     return NextResponse.json(
