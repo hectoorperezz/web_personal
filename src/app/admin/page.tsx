@@ -68,12 +68,24 @@ export default function AdminPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState("articles");
 
-  const handleAuth = () => {
-    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
-      setIsAuthenticated(true);
-      setAuthError("");
-    } else {
-      setAuthError("Invalid password");
+  const handleAuth = async () => {
+    try {
+      const response = await fetch('/api/auth/admin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        setIsAuthenticated(true);
+        setAuthError("");
+      } else {
+        setAuthError("Invalid password");
+      }
+    } catch (error) {
+      setAuthError("Authentication failed");
     }
   };
 
