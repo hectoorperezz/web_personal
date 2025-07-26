@@ -7,6 +7,9 @@ export const metadata = {
   description: "Un lugar donde compartir mis pensamientos y cosmovisión.",
 };
 
+// Force dynamic rendering to ensure blob storage is fetched at runtime
+export const dynamic = 'force-dynamic';
+
 const BLUR_FADE_DELAY = 0.04;
 
 export default async function BlogPage() {
